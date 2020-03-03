@@ -1,4 +1,4 @@
-# How to run SpringBoot application in Tomcat (running as Docker instance)
+# How to run SpringBoot application in Tomcat with Docker
 
 To run this application in Docker, follow the below steps
 
