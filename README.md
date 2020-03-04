@@ -4,22 +4,23 @@
 
 First download or clone this code - **git clone** https://github.com/iamvickyav/SpringBoot-Docker-Tomcat.git
 
-**To run this app in Tomcat with Docker, follow the below steps**
+**Dockerfile explained**
 
-1. Run mvn clean package
+```
+FROM tomcat:latest
+ADD target/sample.war /usr/local/tomcat/webapps/
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
+```
+| Keyword | Usage   |
+| ------- | ------- |
+| FROM    | Base image on top of which our custom image is to be build  |
+| ADD     | Copy war file into webapps folder inside Docker             |
+| EXPOSE  | Expose port 8080 outside Docker container                   |
+| CMD     | The command to be executed when the Docker image is run     |
 
-2. Manually copy the war file generated in target/ folder to **src/main/docker** folder
+Now run the command
 
-Start Docker in your system
+> docker-compose up --build 
 
-3. cd src/main/docker
-
-4. docker build -t sample . 
-
-5. docker image ls --> to check if the image named sample got created successfully 
-
-6. docker run -p 8080:8080 sample
-
-Thats all folks ! 
-
-Try hitting http://localhost:8080/sample/index?name=Vicky 
+Above command will start processing docker-compose.yml file. Since we specified **build: .** in docker-compose.yml file, it will look for Dockerfile in current directory & build a custom image using the same.
