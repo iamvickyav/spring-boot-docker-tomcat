@@ -23,4 +23,8 @@ Now run the command
 
 > docker-compose up --build 
 
+**Note** : --build is used to build images before starting the container instead of using the existing image
+
 Above command will start processing docker-compose.yml file. Since we specified **build: .** in docker-compose.yml file, it will look for Dockerfile in current directory & build a custom image using the same.
+
+Once the docker container is up, try hitting http://localhost:8080/sample/index?name=Vicky
