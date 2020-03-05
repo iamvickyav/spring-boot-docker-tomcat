@@ -2,7 +2,7 @@
 
 **Note:** In order to run your Spring Boot app in standalone tomcat, please do make the code changes mentioned in [Deploying SpringBoot application in Standalone Tomcat](https://github.com/iamvickyav/Developer-Tips/blob/master/Deploy-SpringBootApp-In-Tomcat.md)
 
-**Dockerfile explained**
+## Dockerfile explained
 
 ```
 FROM tomcat:latest
@@ -19,7 +19,9 @@ CMD ["catalina.sh", "run"]
 
 Now run the command
 
-> docker-compose up --build 
+```
+> docker-compose up --build
+```
 
 **Note** : --build is used to build images before starting the container instead of using the existing image
 
